@@ -35,21 +35,23 @@ jobs:
             
             - name: Print GitHub context info
               run: |
-                echo "VERSION=${{ github.sha }}" >> ${{ ENV }}
-                echo "TIMESTAMP=$(date -u +%Y%m%d%H%M%S)" >> ${{ ENV }}
-                echo "## Build Results" >> STEP_SUMMARY
-                echo "## Test" >> STEP_SUMMARY
-                echo "============================================"
-                echo "  GITHUB ACTIONS CONTEXT INFORMATION"
-                echo "============================================"
-                echo "  Who triggered this run: ${{ github.actor }}"
-                echo "  What triggered it:      ${{ github.event_name }}"
-                echo "  Branch / Ref:           ${{ github.ref }}"
-                echo "  Commit SHA:             ${{ github.sha }}"
-                echo "  Repository:             ${{ github.repository }}"
-                echo "  Run number:             ${{ github.run_number }}"
-                echo "  Run ID:                 ${{ github.run_id }}"
-                echo "============================================"
+                STEP_SUMMARY=""
+                STEP_SUMMARY+="VERSION=${GITHUB_SHA}\n"
+                STEP_SUMMARY+="TIMESTAMP=$(date -u +%Y%m%d%H%M%S)\n"
+                STEP_SUMMARY+="## Build Results\n"
+                STEP_SUMMARY+="## Test\n"
+                STEP_SUMMARY+="============================================\n"
+                STEP_SUMMARY+="  GITHUB ACTIONS CONTEXT INFORMATION\n"
+                STEP_SUMMARY+="============================================\n"
+                STEP_SUMMARY+="  Who triggered this run: ${GITHUB_ACTOR}\n"
+                STEP_SUMMARY+="  What triggered it:      ${GITHUB_EVENT_NAME}\n"
+                STEP_SUMMARY+="  Branch / Ref:           ${GITHUB_REF}\n"
+                STEP_SUMMARY+="  Commit SHA:             ${GITHUB_SHA}\n"
+                STEP_SUMMARY+="  Repository:             ${GITHUB_REPOSITORY}\n"
+                STEP_SUMMARY+="  Run number:             ${GITHUB_RUN_NUMBER}\n"
+                STEP_SUMMARY+="  Run ID:                 ${GITHUB_RUN_ID}\n"
+                STEP_SUMMARY+="============================================\n"
+                echo -e "$STEP_SUMMARY"
 
     second-run:
         runs-on: ubuntu-latest
