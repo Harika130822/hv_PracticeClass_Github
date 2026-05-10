@@ -35,6 +35,10 @@ jobs:
             
             - name: Print GitHub context info
               run: |
+                echo "VERSION=${{ github.sha }}" >> $GITHUB_ENV
+                echo "TIMESTAMP=$(date -u +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+                echo "## Build Results" >> $GITHUB_STEP_SUMMARY
+                echo "## Build Results" >> $GITHUB_STEP_SUMMARY
                 echo "============================================"
                 echo "  GITHUB ACTIONS CONTEXT INFORMATION"
                 echo "============================================"

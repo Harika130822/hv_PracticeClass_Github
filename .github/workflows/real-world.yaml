@@ -1,0 +1,22 @@
+# YAML sample for a GitHub Actions workflow
+name: Real World Workflow
+course_info:
+  name: GitHub Actions Master Class
+  version: "1.0.0"
+  active: true
+  max_students: 500
+  topics:
+    - YAML Fundamentals
+    - Git Basics
+    - Workflow Triggers
+    - CI/CD Pipelines
+  contact:
+    email: "support@example.com"
+    website: "https://example.com"
+  metadata:
+    created: "2024-01-01"
+    updated: "2024-06-01"
+    tags:
+      - devops
+      - github
+      - automation
