@@ -52,6 +52,7 @@ jobs:
                 STEP_SUMMARY+="  Run ID:                 ${GITHUB_RUN_ID}\n"
                 STEP_SUMMARY+="============================================\n"
                 echo -e "$STEP_SUMMARY"
+                echo -e "$TIMESTAMP"
 
     second-run:
         runs-on: ubuntu-latest
