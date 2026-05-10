@@ -35,10 +35,10 @@ jobs:
             
             - name: Print GitHub context info
               run: |
-                echo "VERSION=${{ github.sha }}" >> $STEP_SUMMARY
-                echo "TIMESTAMP=$(date -u +%Y%m%d%H%M%S)" >> $STEP_SUMMARY
-                echo "## Build Results" >> $STEP_SUMMARY
-                echo "## Test" >> $STEP_SUMMARY
+                echo "VERSION=${{ github.sha }}" >> ${{ STEP_SUMMARY }}
+                echo "TIMESTAMP=$(date -u +%Y%m%d%H%M%S)" >> ${{ STEP_SUMMARY }}
+                echo "## Build Results" >> ${{ STEP_SUMMARY }}
+                echo "## Test" >> ${{ STEP_SUMMARY }}
                 echo "============================================"
                 echo "  GITHUB ACTIONS CONTEXT INFORMATION"
                 echo "============================================"
