@@ -35,7 +35,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14.4"
+          python-version: "3.14"
 
       - name: Install Linter
         run: pip install flake8
