@@ -1,0 +1,78 @@
+name: Python YAML file
+
+on:
+
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      debug_mode:
+        type: boolean
+        default: false
+        description: "Enable debug output"
+
+env:
+  PYTHON_VERSION: "3.14"
+  APP_NAME: my-python-app
+
+jobs:
+  lint:
+    runs on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install Linter
+        run: pip install flask8
+
+      - name: Run linter
+        run: flask8 src/
+
+	
+  test:
+    needs: lint
+    runs on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checout@v4
+    
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run test
+        run: pytest tests/ -v
+        env:
+          DEBUG: ${{ inputs.debug_mode }}
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+
+
+      
+      
+
+    
