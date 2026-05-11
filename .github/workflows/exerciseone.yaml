@@ -44,7 +44,7 @@ jobs:
         run: flake8 src/
 
   test:
-    needs: lint
+    #needs: lint
     runs-on: ubuntu-latest
     
     steps:
