@@ -24,7 +24,7 @@ env:
 
 jobs:
   lint:
-    runs on: ubuntu-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
@@ -46,7 +46,7 @@ jobs:
 	
   test:
     needs: lint
-    runs on: ubuntu-latest
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
