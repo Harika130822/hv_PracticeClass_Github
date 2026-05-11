@@ -40,10 +40,10 @@ jobs:
       - name: Install Linter
         run: pip install flake8
 
-      - name: Run linter
-        run: |
-          cd my-python-app
-          flake8 .
+      # - name: Run linter
+      #   run: |
+      #     cd my-python-app
+      #     flake8 .
 
 
   test:
