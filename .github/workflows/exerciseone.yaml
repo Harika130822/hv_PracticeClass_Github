@@ -43,15 +43,14 @@ jobs:
       - name: Run linter
         run: flask8 src/
 
-	
   test:
     needs: lint
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
-        uses: actions/checout@v4
-    
+        uses: actions/checkout@v4
+
       - name: setup python
         uses: actions/setup-python@v5
         with:
