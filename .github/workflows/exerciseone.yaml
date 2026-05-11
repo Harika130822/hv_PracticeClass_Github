@@ -41,7 +41,7 @@ jobs:
         run: pip install flake8
 
       - name: Run linter
-        run: flake8 src/
+        run: flake8 my-python-app/
 
   test:
     #needs: lint
